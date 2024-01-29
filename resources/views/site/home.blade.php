@@ -51,13 +51,13 @@ $more_visited = App\Models\Visit::with(['article' => function ($query) {
                 </div>
             @endif
             <section class="latest">
+                @if($latestArticles && count($latestArticles) > 0)
                 <div class="cat-head">
                     <div class="cat">
                         الاحدث                    
                     </div>
                     <span></span>
                 </div>
-                @if($latestArticles && count($latestArticles) > 0)
                     @foreach ($latestArticles as $article)
                         <a href="article/{{$article->id}}" class="card">
                             <p>
@@ -187,13 +187,13 @@ $more_visited = App\Models\Visit::with(['article' => function ($query) {
                 </div>
             @endif
             <section class="latest">
+                @if($latestArticles && count($latestArticles) > 0)
                 <div class="cat-head">
                     <div class="cat">
                         الاحدث                    
                     </div>
                     <span></span>
                 </div>
-                @if($latestArticles && count($latestArticles) > 0)
                     @foreach ($latestArticles as $article)
                         <a href="article/{{$article->id}}" class="card">
                             <p>
