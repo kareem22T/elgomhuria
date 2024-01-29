@@ -347,7 +347,7 @@ createApp({
                 this.articles = response.data.data.artids
                 this.prevCategories = response.data.data.catnames
                 this.prevArticles = response.data.data.artnames
-                this.news_bar = response.data.data.newsbar.text
+                this.news_bar = response.data.data.newsbar ? response.data.data.newsbar.text : null
                 this.editor_master = response.data.data.editor_master.name
                 if (response.data.data.ads) {
                     this.imagePreview_ad_1 = response.data.data.ads.ad_1 ? '/images/uploads/ads/' + response.data.data.ads.ad_1 : null
