@@ -42,6 +42,7 @@ class HomeController extends Controller
         Home_category::truncate();
         Home_article::truncate();
 
+        if ($request->categories)
         foreach ($request->categories as $category) {
             $cat = Category::find($category);
             $saveCategories = Home_category::create([
@@ -50,6 +51,7 @@ class HomeController extends Controller
             ]);
         }
 
+        if ($request->articles)
         foreach ($request->articles as $article) {
             $art = Article::find($article);
             $saveArticle = Home_article::create([
