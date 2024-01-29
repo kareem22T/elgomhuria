@@ -50,45 +50,45 @@ $more_visited = App\Models\Visit::with(['article' => function ($query) {
                     </section>
                 </div>
             @endif
-            <section class="latest">
                 @if($latestArticles && count($latestArticles) > 0)
-                <div class="cat-head">
-                    <div class="cat">
-                        الاحدث                    
+                <section class="latest">
+                    <div class="cat-head">
+                        <div class="cat">
+                            الاحدث                    
+                        </div>
+                        <span></span>
                     </div>
-                    <span></span>
-                </div>
-                    @foreach ($latestArticles as $article)
-                        <a href="article/{{$article->id}}" class="card">
-                            <p>
-                                {{ $article->title }}
-                            </p>
-                            <div class="img">
-                                <img src="{{ $article->thumbnail_path }}" alt="">
-                            </div>
-                        </a>
+                        @foreach ($latestArticles as $article)
+                            <a href="article/{{$article->id}}" class="card">
+                                <p>
+                                    {{ $article->title }}
+                                </p>
+                                <div class="img">
+                                    <img src="{{ $article->thumbnail_path }}" alt="">
+                                </div>
+                            </a>
+                        @endforeach
+                    @if($more_visited && $more_visited->count() > 3)
+                    <div class="cat-head" style="margin-top: 30px;">
+                        <div class="cat">
+                            الاكثر قراءة                    
+                        </div>
+                        <span></span>
+                    </div>
+                    @foreach ($more_visited as $visit)
+                        {{-- Check if the associated article exists --}}
+                        @if($visit->article)
+                            <a href="article/{{ $visit->article->id }}" class="card">
+                                <p>
+                                    {{ $visit->article->title }}
+                                </p>
+                                <div class="img">
+                                    <img src="{{ $visit->article->thumbnail_path }}" alt="">
+                                </div>
+                            </a>
+                        @endif
                     @endforeach
                 @endif
-                @if($more_visited && $more_visited->count() > 3)
-                <div class="cat-head" style="margin-top: 30px;">
-                    <div class="cat">
-                        الاكثر قراءة                    
-                    </div>
-                    <span></span>
-                </div>
-                @foreach ($more_visited as $visit)
-                    {{-- Check if the associated article exists --}}
-                    @if($visit->article)
-                        <a href="article/{{ $visit->article->id }}" class="card">
-                            <p>
-                                {{ $visit->article->title }}
-                            </p>
-                            <div class="img">
-                                <img src="{{ $visit->article->thumbnail_path }}" alt="">
-                            </div>
-                        </a>
-                    @endif
-                @endforeach
             @endif
             </section>
         </div>
@@ -186,47 +186,48 @@ $more_visited = App\Models\Visit::with(['article' => function ($query) {
                     </section>
                 </div>
             @endif
-            <section class="latest">
                 @if($latestArticles && count($latestArticles) > 0)
-                <div class="cat-head">
-                    <div class="cat">
-                        الاحدث                    
+                <section class="latest">
+                    <div class="cat-head">
+                        <div class="cat">
+                            الاحدث                    
+                        </div>
+                        <span></span>
                     </div>
-                    <span></span>
-                </div>
-                    @foreach ($latestArticles as $article)
-                        <a href="article/{{$article->id}}" class="card">
-                            <p>
-                                {{ $article->title }}
-                            </p>
-                            <div class="img">
-                                <img src="{{ $article->thumbnail_path }}" alt="">
-                            </div>
-                        </a>
+                        @foreach ($latestArticles as $article)
+                            <a href="article/{{$article->id}}" class="card">
+                                <p>
+                                    {{ $article->title }}
+                                </p>
+                                <div class="img">
+                                    <img src="{{ $article->thumbnail_path }}" alt="">
+                                </div>
+                            </a>
+                        @endforeach
+                    @if($more_visited && $more_visited->count() > 3)
+                    <div class="cat-head" style="margin-top: 30px;">
+                        <div class="cat">
+                            الاكثر قراءة                    
+                        </div>
+                        <span></span>
+                    </div>
+                    @foreach ($more_visited as $visit)
+                        {{-- Check if the associated article exists --}}
+                        @if($visit->article)
+                            <a href="article/{{ $visit->article->id }}" class="card">
+                                <p>
+                                    {{ $visit->article->title }}
+                                </p>
+                                <div class="img">
+                                    <img src="{{ $visit->article->thumbnail_path }}" alt="">
+                                </div>
+                            </a>
+                        @endif
                     @endforeach
-                @endif
-                @if($more_visited && $more_visited->count() > 3)
-                <div class="cat-head" style="margin-top: 30px;">
-                    <div class="cat">
-                        الاكثر قراءة                    
-                    </div>
-                    <span></span>
-                </div>
-                @foreach ($more_visited as $visit)
-                    {{-- Check if the associated article exists --}}
-                    @if($visit->article)
-                        <a href="article/{{ $visit->article->id }}" class="card">
-                            <p>
-                                {{ $visit->article->title }}
-                            </p>
-                            <div class="img">
-                                <img src="{{ $visit->article->thumbnail_path }}" alt="">
-                            </div>
-                        </a>
                     @endif
-                @endforeach
+                </section>
                 @endif
-            </section>
+
             @if ($ads)                
                 <div class="ad_wrapper">
                     <section class="ad">
