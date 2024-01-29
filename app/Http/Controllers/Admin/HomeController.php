@@ -31,12 +31,8 @@ class HomeController extends Controller
     public function savePageContent(Request $request) {
         $validator = Validator::make($request->all(), [
             'editor_master' => 'required',
-            'categories' => 'required|min:1',
-            'articles' => 'required|min:1',
         ], [
             'editor_master.required' => 'ادخل اسم رئيس التحرير',
-            'categories.required' => 'يجب اختيار ع الاقل قسم واحد',
-            'articles.required' => 'يجب اختيار ع الاقل مقال واحد',
         ]);
 
         if ($validator->fails()) {
