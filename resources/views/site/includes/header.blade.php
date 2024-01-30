@@ -7,7 +7,7 @@
         <div>
             <button @click="showSearchPopUp = true"><i class="fa fa-search"></i></button>
             <p>
-                <span>رئيس مجلس أدارة</span> <br>
+                <span>رئيس مجلس الإدارة </span> <br>
                 <span>حسام البحيري</span><br>
                 <span>رئيس التحرير</span><br>
                 <span>{{ App\Models\Editor_master::first() && App\Models\Editor_master::first()->name ? App\Models\Editor_master::first()->name : "لم يحدد بعد"}}</span><br>
@@ -20,8 +20,8 @@
             <div class="social">
                 <a href=""><i class="fa-brands fa-facebook-f"></i></a>
                 <a href=""><i class="fa-brands fa-x-twitter"></i></a>
-                <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+                <a href=""><i class="fa-brands fa-tiktok"></i></a>
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
             </div>
             <div class="more">
                 <button class="show_left_nav"><i class="fa fa-bars"></i></button>
@@ -50,12 +50,12 @@
 <div class="mobile-social">
     <a href=""><i class="fa-brands fa-facebook-f"></i></a>
     <a href=""><i class="fa-brands fa-x-twitter"></i></a>
-    <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
-    <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+    <a href=""><i class="fa-brands fa-tiktok"></i></a>
+    <a href=""><i class="fa-brands fa-youtube"></i></a>
 </div>
 
 <p class="mobile-paragraph">
-    <span>رئيس مجلس أدارة: حسام البحيري</span>
+    <span>رئيس مجلس الإدارة: حسام البحيري</span>
     <span>رئيس التحرير: {{ App\Models\Editor_master::first() && App\Models\Editor_master::first()->name ? App\Models\Editor_master::first()->name : "لم يحدد بعد"}}</span>
 </p>
 

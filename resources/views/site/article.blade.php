@@ -95,7 +95,7 @@
                 </div>
                 <h4>{{ $article->category->main_name }}</h4>
                 <p>
-                    <span>للكاتب: {{ $article->author_name }}</span> <br>
+                    <span>كتب: {{ $article->author_name }}</span> <br>
                     {!! $article->content !!}
                 </p>
                 @if($article->tags && $article->tags->count() > 0)

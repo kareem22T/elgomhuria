@@ -111,7 +111,7 @@ $more_visited = App\Models\Visit::with(['article' => function ($query) {
                             <h2>{{ $main_article->title }}</h2>
                             <h2 class="sub-title">{{ $main_article->sub_title }}</h2>
                             <p>
-                                <span>للكاتب: {{$main_article->author_name}}</span><br>
+                                <span>كتب: {{$main_article->author_name}}</span><br>
                                 {{Illuminate\Support\Str::limit($main_article->intro, 195)}}
                             </p>
                             
