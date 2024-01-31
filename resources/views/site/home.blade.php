@@ -9,7 +9,7 @@
 
 @if ($important_articles->count() > 0)
 <div class="news_slider" style="background: #FF00000F;display: flex;direction: rtl;padding: 10px;">
-    <p style="white-space: nowrap;padding: 0px 1rem;border-left: 2px solid #c00;font-size: 20px;font-weight: 600;display: flex;align-items: center;">اخر الاخبار</p>
+    <p style="white-space: nowrap;padding: 0px 1rem;border-left: 2px solid #c00;font-size: 20px;font-weight: 600;display: flex;align-items: center;">الاخبار العاجلة</p>
     <div class="ticker-wrap" style="width: 100%;">
 
         <div id="ticker" style="font-weight: 500;font-size: 19px;line-height: 36px;text-align: right;color: #000000;white-space: nowrap;">
