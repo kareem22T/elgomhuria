@@ -7,6 +7,10 @@
 <link rel="stylesheet" href="{{ asset('/libs/css/swiperadmin.css') }}?v={{ time() }}" />
 
 <style>
+  p {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
   iframe {
     width: 100% !important;
   }
