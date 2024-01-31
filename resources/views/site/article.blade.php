@@ -10,10 +10,12 @@
   article p {
     display: flex !important;
     flex-wrap: wrap !important;
+    line-height: 1.5 !important;
   }
   article span {
     display: flex !important;
     flex-wrap: wrap !important;
+    line-height: 1.5 !important;
   }
   iframe {
     width: 100% !important;
