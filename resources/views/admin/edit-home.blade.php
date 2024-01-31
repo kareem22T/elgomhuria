@@ -14,9 +14,9 @@
         <label for="categories" class="d-block mb-2">رئيس التحرير</label>
         <input type="text" name="search" id="search" class="form-control w-100" placeholder="رئيس التحرير" v-model="editor_master">
     </div>
-    <div class="w-100 mb-3">
+    {{-- <div class="w-100 mb-3">
         <textarea name="news" id="news" cols="30" rows="5" placeholder="شريط الاخبار" class="form-control" v-model="news_bar"></textarea>
-    </div>
+    </div> --}}
     <div class="mb-3 w-100">
         <label for="categories" class="d-block mb-2">اقسام الصفحة الرئيسية</label>
         <div class="w-100 d-flex gap-2 mb-3" style="position: relative">
