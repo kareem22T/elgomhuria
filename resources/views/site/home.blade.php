@@ -4,10 +4,10 @@
 
 @section('content')
 @php
-    $news_bar = App\Models\News_bar::all();
+    $important_articles = App\Models\Important_article::all();
 @endphp
 
-@if ($news_bar->count() > 0 && $news_bar->first()->text)
+@if ($important_articles->count() > 0)
 <div class="news_slider" style="background: #FF00000F;display: flex;direction: rtl;padding: 10px;">
     <p style="white-space: nowrap;padding: 0px 1rem;border-left: 2px solid #c00;font-size: 20px;font-weight: 600;display: flex;align-items: center;">اخر الاخبار</p>
     <div class="ticker-wrap" style="width: 100%;">
@@ -18,8 +18,14 @@
 
             <div id="ticker-box" style="overflow: hidden; min-height: 40px;">
                 <ul style="padding: 0px; margin: 0px; position: relative; list-style-type: none;">
-                    <li style="position: absolute; white-space: nowrap; right: -3543px; color: rgb(0, 0, 0);">
-                        {{$news_bar->first()->text}}
+                    
+                    <li style="display: flex; justify-content: center; align-items: center; gap: 5px;    position: absolute; white-space: nowrap; right: -3543px; color: rgb(0, 0, 0);">
+                        @foreach ($important_articles as $index => $important)
+                            {{$important->article->title}} 
+                            @if ($index + 1 !== $important_articles->count())
+                                <img src="{{ asset("/site/imgs/logo_t.png")}}" alt="" style="width: 20px">
+                            @endif
+                        @endforeach
                     </li>
                 </ul>
             </div>

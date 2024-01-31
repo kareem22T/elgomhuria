@@ -56,6 +56,7 @@
                 </td>
                 <td class="border-bottom-0">
                     <div class="d-flex gap-2">
+                        <button class="btn btn-primary p-2" @click="makeImp(article.id)"><h4 class="ti ti-alert-circle text-light m-0 fw-semibold"></h4></button>
                         <a :href="`/admin/articles/edit/${article.id}`" class="btn btn-secondary p-2"><h4 class="ti ti-edit text-light m-0 fw-semibold"></h4></a>
                         <button class="btn btn-danger p-2" @click="this.delete_pop_up = true; getValues(article.id, article.title.length >= 20 ? article.title.slice(0, 20) + '...' : article.title)"><h4 class="ti ti-trash text-light m-0 fw-semibold"></h4></button>
                     </div>
@@ -129,6 +130,57 @@ createApp({
                         $('#errors').fadeOut('slow')
                         location.reload();
                     }, 2000);
+                } else {
+                    $('.loader').fadeOut()
+                    document.getElementById('errors').innerHTML = ''
+                    $.each(response.data.errors, function (key, value) {
+                        let error = document.createElement('div')
+                        error.classList = 'error'
+                        error.innerHTML = value
+                        document.getElementById('errors').append(error)
+                    });
+                    $('#errors').fadeIn('slow')
+                    setTimeout(() => {
+                        $('input').css('outline', 'none')
+                        $('#errors').fadeOut('slow')
+                    }, 5000);
+                }
+
+            } catch (error) {
+                document.getElementById('errors').innerHTML = ''
+                let err = document.createElement('div')
+                err.classList = 'error'
+                err.innerHTML = 'server error try again later'
+                document.getElementById('errors').append(err)
+                $('#errors').fadeIn('slow')
+                $('.loader').fadeOut()
+
+                setTimeout(() => {
+                    $('#errors').fadeOut('slow')
+                }, 3500);
+
+                console.error(error);
+            }
+        },
+        async makeImp(article_id) {
+            $('.loader').fadeIn().css('display', 'flex')
+            try {
+                const response = await axios.post(`{{route('article.make.important')}}`, {
+                    article_id: article_id
+                },
+                );
+                if (response.data.status === true) {
+                    document.getElementById('errors').innerHTML = ''
+                    let error = document.createElement('div')
+                    error.classList = 'success'
+                    error.innerHTML = response.data.message
+                    document.getElementById('errors').append(error)
+                    $('#errors').fadeIn('slow')
+                    this.edit_pop_up = false
+                    $('.loader').fadeOut()
+                    setTimeout(() => {
+                        $('#errors').fadeOut('slow')
+                    }, 4000);
                 } else {
                     $('.loader').fadeOut()
                     document.getElementById('errors').innerHTML = ''

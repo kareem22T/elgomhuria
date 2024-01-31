@@ -14,6 +14,7 @@ use App\Models\Category_Name;
 use App\Models\Tag;
 use App\Models\Article;
 use App\Models\Article_Title;
+use App\Models\Important_article;
 use App\Models\Article_Content;
 use App\Models\Articles_image;
 use Illuminate\Validation\Rule;
@@ -46,6 +47,10 @@ class ArticleController extends Controller
 
     public function getArticles() {
         $Articles = Article::where("isDraft", false)->with('category')->orderby('id', 'desc')->paginate(10);
+        // foreach ($Articles as $article) {
+        //     $isimportant = Important_article::where("article_id", $article->id)->count() > 0;
+        //     $article->isImportant = $isimportant;
+        // }
         
         return $this->jsonData(true, true, '', [], $Articles);
     }
@@ -271,5 +276,31 @@ class ArticleController extends Controller
 
         if ($Article)
             return $this->jsonData(true, true, $request->file_name . ' Article has been deleted succussfuly', [], []);
+    }
+
+    public function makeImportant(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'article_id' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->jsondata(false, true, 'Edit failed', [$validator->errors()->first()], []);
+        }
+
+        $isArticleExist = Important_article::where('article_id', $request->article_id)->get()->count() > 0;
+        if ($isArticleExist) {
+            return $this->jsondata(false, true, 'Edit failed', ['هذا المقال مضاف بالفعل كعاجل'], []);
+        }
+
+        $important_articles = Important_article::all();
+
+        if ($important_articles->count() === 10)
+            $remove_first = Important_article::first()->delete();
+
+        $add_article = Important_article::create(['article_id' => $request->article_id]);
+
+        if ($add_article)
+            return $this->jsondata(true, true, 'تم اضافة المقال بنجاح كعاجل', [], []);
+
     }
 }

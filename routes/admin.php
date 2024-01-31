@@ -56,6 +56,7 @@ Route::middleware(['auth:admin'])->group(function () {
     //articles
     Route::get('/articles', [ArticleController::class, 'preview'])->middleware(['admin:Publisher']);
     Route::get('/articles/draft', [ArticleController::class, 'Draftpreview']);
+    Route::post('/articles/make-important', [ArticleController::class, 'makeImportant'])->name("article.make.important");
     Route::post('/articles', [ArticleController::class, 'getArticles']);
     Route::post('/articles/draft', [ArticleController::class, 'getDraftArticles']);
     Route::post('/categories', [ArticleController::class, 'getMainCategories']);
