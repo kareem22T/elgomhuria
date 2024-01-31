@@ -137,7 +137,7 @@ class HomeController extends Controller
         $ads = Ad::all()->first();
 
         // Get the category ID in an array
-        $categoryIds = $categories->pluck('id')->toArray();
+        $categoryIds = $categories->pluck('category_id')->toArray();
         $articleIds = $articles->pluck('article_id')->toArray();
 
         // Get the category name in an array
