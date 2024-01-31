@@ -11,6 +11,10 @@
     display: flex !important;
     flex-wrap: wrap !important;
   }
+  article span {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
   iframe {
     width: 100% !important;
   }
