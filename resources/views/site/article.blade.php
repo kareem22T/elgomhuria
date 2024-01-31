@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="{{ asset('/libs/css/swiperadmin.css') }}?v={{ time() }}" />
 
 <style>
-  p {
+  article p {
     display: flex !important;
     flex-wrap: wrap !important;
   }
