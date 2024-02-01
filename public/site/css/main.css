@@ -1109,6 +1109,22 @@ textarea:focus {
     width: 100%;
     padding: 0;
     height: 235px;
+    max-width: 600px;
+}
+@media (max-width: 1199.98) {
+    .catSwiper {
+        max-width: 540px;
+    }
+}
+@media (max-width: 992.98) {
+    .catSwiper {
+        max-width: 680px;
+    }
+}
+@media (max-width: 767.98.98) {
+    .catSwiper {
+        max-width: 515px;
+    }
 }
 
 .catSwiper {
