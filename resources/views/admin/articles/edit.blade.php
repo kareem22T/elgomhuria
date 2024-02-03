@@ -47,7 +47,7 @@
                             <label for="lang_name" class="form-label">محتوى الخبر*</label>
                             <div class="card input">
                                 <div class="pt-3">
-                                    <div class="toolbar d-flex gap-2 justify-content-center">
+                                    <div class="toolbar d-flex gap-2 justify-content-center" style="flex-wrap: wrap">
                                         <button @click="execCommand('bold')" class="btn btn-light"><b>B</b></button>
                                         <button @click="execCommand('italic')" class="btn btn-light"><i>I</i></button>
                                         <button @click="execCommand('underline')" class="btn btn-light"><u>U</u></button>
