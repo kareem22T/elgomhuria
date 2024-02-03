@@ -149,23 +149,27 @@ $more_visited = App\Models\Visit::with(['article' => function ($query) {
                         <div class="swiper catSwiper">
                             <div class="swiper-wrapper">
                                 @foreach ($category->articles as $article)
-                                    <a href="article/{{$article->id}}" class="swiper-slide">
-                                        <div class="thumbnail">
+                                    <div class="swiper-slide">
+                                        <a href="article/{{$article->id}}" class="thumbnail">
                                             <img src="{{ $article->thumbnail_path }}" alt="">
-                                        </div>
+                                        </a>
                                         <div class="text">
                                             <div class="cat-head">
                                                 <span></span>
-                                                <div class="cat">
+                                                <a href="category/{{$category->id}}"  class="cat">
                                                     {{$category->main_name}}                    
-                                                </div>
+                                                </a>
                                             </div>
-                                            <p dir="rtl">
+                                            <a href="article/{{$article->id}}"  dir="rtl">
                                                 {{Illuminate\Support\Str::limit($article->title, 85)}}
-                                            </p>
+                                            </a>
                                         </div>
+                                    </div>
+                                    @endforeach
+                                    <a href="/category/{{$category->id}}" class="swiper-slide" style="flex-direction: column;width: 513px; margin-right: 30px;display: flex;justify-content: center;align-items: center;font-size: 25px;font-weight: 700;color: var(--secondary-color);">
+                                        {!! $category->icon !!}
+                                        عرض كل مقالات قسم {{ $category->main_name}}
                                     </a>
-                                @endforeach
                             </div>
                             <div class="navYpag">
                                 <div class="mainSwiper-swiper-button-prev"><i class="fa-solid fa-angle-left"></i></div>

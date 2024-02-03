@@ -33,7 +33,7 @@ class HomeController extends Controller
 
         foreach ($categories as $cat) {
             $category_with_articles = Category::with(['articles' => function ($query) {
-                $query->where('isDraft', false);
+                $query->where('isDraft', false)->latest()->take(5);
             }])->find($cat->category_id);
             $categories_per_home[] = $category_with_articles;
         }
