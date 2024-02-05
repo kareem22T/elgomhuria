@@ -41,7 +41,7 @@ function savefile($photo, $folder, $name = null) {
     $image = $manager->read($folder . $fileName);
 
     // resize image proportionally to 300px width
-    $image->scale(width: 600);
+    $image->scale(width: 800);
 
     // save modified image in new format 
     $image->save($folder . $fileName);
