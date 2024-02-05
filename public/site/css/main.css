@@ -155,20 +155,14 @@ header .social {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    padding: .5rem 1rem;
-    background: rgba(255, 201, 201, 0.6);
+    gap: 15px;
     border-radius: 50px;
 }
 
 header .social a, .mobile-social a{
-    width: 40px;
-    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white;
-    border-radius: 50%;
     text-decoration: none;
     color: #000;
 }
@@ -1605,8 +1599,6 @@ footer .container p:last-child {
     align-items: center;
     gap: 10px;
     padding: .5rem 1rem;
-    background: rgba(255, 201, 201, 0.6);
-    border-radius: 50px;
     max-width: 300px;
     margin: auto;
     }

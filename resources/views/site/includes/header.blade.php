@@ -18,10 +18,18 @@
         </div>
         <div>
             <div class="social">
-                <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-                <a href=""><i class="fa-brands fa-x-twitter"></i></a>
-                <a href=""><i class="fa-brands fa-tiktok"></i></a>
-                <a href=""><i class="fa-brands fa-youtube"></i></a>
+                <a href="">
+                    <img src="{{ asset("/site/imgs/facebook.png") }}" width="30" alt="">
+                </a>
+                <a href="">
+                    <img src="{{ asset("/site/imgs/x.png") }}" width="30" alt="">
+                </a>
+                <a href="">
+                    <img src="{{ asset("/site/imgs/tiktok.png") }}" width="30" alt="">
+                </a>
+                <a href="">
+                    <img src="{{ asset("/site/imgs/youtube.png") }}" width="30" alt="">
+                </a>
             </div>
             <div class="more">
                 <button class="show_left_nav"><i class="fa fa-bars"></i></button>
@@ -48,10 +56,18 @@
     </div>
 </header>
 <div class="mobile-social">
-    <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-    <a href=""><i class="fa-brands fa-x-twitter"></i></a>
-    <a href=""><i class="fa-brands fa-tiktok"></i></a>
-    <a href=""><i class="fa-brands fa-youtube"></i></a>
+    <a href="">
+        <img src="{{ asset("/site/imgs/facebook.png") }}" width="30" alt="">
+    </a>
+    <a href="">
+        <img src="{{ asset("/site/imgs/x.png") }}" width="30" alt="">
+    </a>
+    <a href="">
+        <img src="{{ asset("/site/imgs/tiktok.png") }}" width="30" alt="">
+    </a>
+    <a href="">
+        <img src="{{ asset("/site/imgs/youtube.png") }}" width="30" alt="">
+    </a>
 </div>
 
 <p class="mobile-paragraph">
