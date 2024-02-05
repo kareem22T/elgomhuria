@@ -28,6 +28,9 @@
                     <img src="{{ asset("/site/imgs/tiktok.png") }}" width="30" alt="">
                 </a>
                 <a href="">
+                    <img src="{{ asset("/site/imgs/insta.png") }}" width="30" alt="">
+                </a>
+                <a href="">
                     <img src="{{ asset("/site/imgs/youtube.png") }}" width="30" alt="">
                 </a>
             </div>
@@ -64,6 +67,9 @@
     </a>
     <a href="">
         <img src="{{ asset("/site/imgs/tiktok.png") }}" width="30" alt="">
+    </a>
+    <a href="">
+        <img src="{{ asset("/site/imgs/insta.png") }}" width="30" alt="">
     </a>
     <a href="">
         <img src="{{ asset("/site/imgs/youtube.png") }}" width="30" alt="">
