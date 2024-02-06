@@ -317,9 +317,9 @@ $more_visited = App\Models\Visit::with(['article' => function ($query) {
       pagination: {
         el: ".mainSwiper-swiper-pagination",
       },
-    //   autoplay: {
-    //     delay: 8000, // in milliseconds
-    //     },
+      autoplay: {
+        delay: 8000, // in milliseconds
+        },
     });
 </script>
 @endsection
