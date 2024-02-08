@@ -35,18 +35,6 @@ function savefile($photo, $folder, $name = null) {
 
     // Move the file to the destination folder
     $photo->move($path, $fileName);
-    $manager = new ImageManager(new Driver());
-
-    // read image from file system
-    $image = $manager->read($folder . $fileName);
-
-    // resize image proportionally to 300px width
-    $image->scale(width: 900);
-
-    // save modified image in new format 
-    $image->save($folder . $fileName);
-
-    // create image manager with desired driver
 
     // Return the final file name (with extension)
     return $fileName;
