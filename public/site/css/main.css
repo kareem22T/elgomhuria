@@ -1675,7 +1675,7 @@ display: none;
         border-radius: 10px;
     }
     .main_ad .ad {
-        height: auto;
+        height: max-content;
     }
     .home .mainSwiper
     {
