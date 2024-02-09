@@ -186,7 +186,7 @@ $more_visited = App\Models\Visit::with(['article' => function ($query) {
                             <div class="ad_wrapper" style="margin-bottom: 1rem">
                                 <section class="ad">
                                     @if ($ads->mobile_ad_1)
-                                    <img src="{{ '/images/uploads/ads/' . $ads->mobile_ad_1 }}" alt="">
+                                    <img src="{{ '/images/uploads/ads/' . $ads->mobile_ad_1 }}?v={{time()}}" alt="">
                                     @endif
                                 </section>
                             </div>
@@ -198,7 +198,7 @@ $more_visited = App\Models\Visit::with(['article' => function ($query) {
                 <div class="ad_wrapper">
                     <section class="ad">
                         @if ($ads->mobile_ad_2)
-                        <img src="{{ '/images/uploads/ads/' . $ads->mobile_ad_2 }}" alt="">
+                        <img src="{{ '/images/uploads/ads/' . $ads->mobile_ad_2 }}?v={{time()}}" alt="">
                         @endif
                     </section>
                 </div>
@@ -249,7 +249,7 @@ $more_visited = App\Models\Visit::with(['article' => function ($query) {
                 <div class="ad_wrapper">
                     <section class="ad">
                         @if ($ads->mobile_ad_3)
-                        <img src="{{ '/images/uploads/ads/' . $ads->mobile_ad_3 }}" alt="">
+                        <img src="{{ '/images/uploads/ads/' . $ads->mobile_ad_3 }}?v={{time()}}" alt="">
                         @endif
                     </section>
                 </div>
@@ -260,21 +260,21 @@ $more_visited = App\Models\Visit::with(['article' => function ($query) {
             <div class="ad_wrapper">
                 <section class="ad">
                     @if ($ads->ad_1)
-                        <img src="{{ '/images/uploads/ads/' . $ads->ad_1 }}" alt="">
+                        <img src="{{ '/images/uploads/ads/' . $ads->ad_1 }}?v={{time()}}" alt="">
                     @endif
                 </section>
             </div>
             <div class="ad_wrapper">
                 <section class="ad">
                     @if ($ads->ad_2)
-                        <img src="{{ '/images/uploads/ads/' . $ads->ad_2 }}" alt="">
+                        <img src="{{ '/images/uploads/ads/' . $ads->ad_2 }}?v={{time()}}" alt="">
                     @endif
                 </section>
             </div>
             <div class="ad_wrapper">
                 <section class="ad">
                     @if ($ads->ad_3)
-                        <img src="{{ '/images/uploads/ads/' . $ads->ad_3 }}" alt="">
+                        <img src="{{ '/images/uploads/ads/' . $ads->ad_3 }}?v={{time()}}" alt="">
                     @endif
                 </section>
             </div>
