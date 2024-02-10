@@ -18,19 +18,19 @@
         </div>
         <div>
             <div class="social">
-                <a href="">
+                <a href="https://www.facebook.com/elgomhuriaeljadida" target="_blank">
                     <img src="{{ asset("/site/imgs/facebook.png") }}" width="30" alt="">
                 </a>
-                <a href="">
+                <a href="https://twitter.com/i/flow/login?redirect_after_login=%2FEEljadida32528" target="_blank">
                     <img src="{{ asset("/site/imgs/x.png") }}" width="30" alt="">
                 </a>
-                <a href="">
+                <a href="https://www.tiktok.com/@elgomhuriaeljadid?_t=8jlj7ZTUQzO&_r=1" target="_blank">
                     <img src="{{ asset("/site/imgs/tiktok.png") }}" width="30" alt="">
                 </a>
-                <a href="">
+                <a href="https://www.instagram.com/elgomhuriaeljadida/" target="_blank">
                     <img src="{{ asset("/site/imgs/insta.png") }}" width="30" alt="">
                 </a>
-                <a href="">
+                <a href="https://www.youtube.com/channel/UCGzsSgidw7s3i9pdxjScPQA" target="_blank">
                     <img src="{{ asset("/site/imgs/youtube.png") }}" width="30" alt="">
                 </a>
             </div>
@@ -59,19 +59,19 @@
     </div>
 </header>
 <div class="mobile-social">
-    <a href="">
+    <a href="https://www.facebook.com/elgomhuriaeljadida" target="_blank">
         <img src="{{ asset("/site/imgs/facebook.png") }}" width="30" alt="">
     </a>
-    <a href="">
+    <a href="https://twitter.com/i/flow/login?redirect_after_login=%2FEEljadida32528" target="_blank">
         <img src="{{ asset("/site/imgs/x.png") }}" width="30" alt="">
     </a>
-    <a href="">
+    <a href="https://www.tiktok.com/@elgomhuriaeljadid?_t=8jlj7ZTUQzO&_r=1" target="_blank">
         <img src="{{ asset("/site/imgs/tiktok.png") }}" width="30" alt="">
     </a>
-    <a href="">
+    <a href="https://www.instagram.com/elgomhuriaeljadida/" target="_blank">
         <img src="{{ asset("/site/imgs/insta.png") }}" width="30" alt="">
     </a>
-    <a href="">
+    <a href="https://www.youtube.com/channel/UCGzsSgidw7s3i9pdxjScPQA" target="_blank">
         <img src="{{ asset("/site/imgs/youtube.png") }}" width="30" alt="">
     </a>
 </div>
