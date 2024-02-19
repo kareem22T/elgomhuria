@@ -45,11 +45,14 @@
 
 @if ($article)
 @section("heads")
+<meta property="og:type" content="{{ $article->category->name }}">
 <meta property="og:title" content="{{ $article->title }}">
 <meta property="og:description" content="{{ $article->content }}">
 <meta property="og:image" content="{{ "https://elgomhuriaeljadida.com" . $article->thumbnail_path }}">
-<meta property="og:locale" content="ar_Ar">
+<meta property="og:url" content="https://elgomhuriaeljadida.com/article/{{$article->id}}">
 <meta property="og:type" content="article">
+<meta property="og:site_name" content="El gomhuria el Gdida">
+<meta property="og:locale" content="ar_Ar">
 @endsection
 
 <link rel="stylesheet" href="{{ asset('/libs/css/swiperadmin.css') }}?v={{ time() }}" />
