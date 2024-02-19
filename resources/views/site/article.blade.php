@@ -149,7 +149,7 @@
               <a href="" class="show_more_article">المزيد</a>
             </aside>
             <article>
-                <div dir="rtl" style="display: flex;justify-content: space-between;width: 100%;flex-direction: row-reverse;padding: 10px;align-items: center;">
+                <div dir="rtl" style="display: flex;justify-content: space-between;width: 100%;flex-direction: row;padding: 10px;align-items: center;">
                   <a href="/category/{{ $article->category->id }}" class="cat" style="font-weight: 700;font-size: 17px;line-height: 26px;margin-top: -10px;color: #cc0000;text-decoration: none;display: flex;justify-content: center;align-items: center;">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-category-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#cc0000" fill="none" stroke-linecap="round" stroke-linejoin="round">
                       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
