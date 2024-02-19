@@ -48,6 +48,42 @@
 <meta property="og:title" content="{{ $article->title }}">
 <meta property="og:description" content="{{ $article->content }}">
 <meta property="og:image" content="{{ $article->thumbnail_path }}">
+<link rel="alternate" media="handheld"
+href="https://m.youm7.com/amp/2024/2/16/مصدر-مسئول-لا-صحة-لاقتحام-معبر-رفح-والشرطة-الفلسطينية-تؤمن/6482102">
+
+<meta name="keywords" content="معبر رفح,اقتحام معبر رفح,رفح,معبر رفح البرى,غزة,قطاع غزة">
+<link rel="canonical"
+href="https://www.youm7.com/story/2024/2/16/مصدر-مسئول-لا-صحة-لاقتحام-معبر-رفح-والشرطة-الفلسطينية-تؤمن/6482102">
+<meta property="og:locale" content="ar_Ar">
+<meta property="og:type" content="article">
+<meta property="og:title"
+content="مصدر مسئول: لا صحة لاقتحام معبر رفح.. والشرطة الفلسطينية تؤمن دخول المساعدات - اليوم السابع">
+<meta property="og:description"
+content="قال مصدر مسئول في هيئة المعابر والحدود بقطاع غزة إن معبر رفح لم يتم اقتحامه كما تداولته بعض وسائل الإعلام ومنصات التواصل الاجتماعى.">
+<meta property="og:url"
+content="https://www.youm7.com/story/2024/2/16/مصدر-مسئول-لا-صحة-لاقتحام-معبر-رفح-والشرطة-الفلسطينية-تؤمن/6482102">
+<meta property="og:site_name" content="اليوم السابع">
+<meta property="article:tag" content="معبر رفح">
+<meta property="article:tag" content="اقتحام معبر رفح">
+<meta property="article:tag" content="رفح">
+<meta property="article:tag" content="معبر رفح البرى">
+<meta property="article:tag" content="غزة">
+<meta property="article:tag" content="قطاع غزة">
+<meta property="article:section" content="أخبار عاجلة">
+<meta property="article:published_time" content="2024-02-16T18:37:58Z">
+<meta property="article:modified_time" content="2024-02-16T18:37:58Z">
+<meta property="og:updated_time" content="2024-02-16T18:37:58Z">
+<meta property="fb:app_id" content="1719209038322750">
+<meta property="og:image" content="https://img.youm7.com/xlarge/202312060616151615.jpg">
+<meta property="og:image:width" content="550">
+<meta property="og:image:height" content="289">
+<meta property="og:image:type" content="image/jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description"
+content="قال مصدر مسئول في هيئة المعابر والحدود بقطاع غزة إن معبر رفح لم يتم اقتحامه كما تداولته بعض وسائل الإعلام ومنصات التواصل الاجتماعى.">
+<meta name="twitter:title"
+content="مصدر مسئول: لا صحة لاقتحام معبر رفح.. والشرطة الفلسطينية تؤمن دخول المساعدات - اليوم السابع">
+<meta name="twitter:image" content="https://img.youm7.com/large/202312060616151615.jpg">
 @endsection
 
 <link rel="stylesheet" href="{{ asset('/libs/css/swiperadmin.css') }}?v={{ time() }}" />
