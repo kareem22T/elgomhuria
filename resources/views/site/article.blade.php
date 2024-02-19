@@ -44,6 +44,12 @@
 @endif
 
 @if ($article)
+@section("heads")
+<meta property="og:title" content="{{ $article->title }}">
+<meta property="og:description" content="{{ $article->content }}">
+<meta property="og:image" content="{{ $article->thumbnail_path }}">
+@endsection
+
 <link rel="stylesheet" href="{{ asset('/libs/css/swiperadmin.css') }}?v={{ time() }}" />
 
 <style>

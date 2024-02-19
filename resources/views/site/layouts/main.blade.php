@@ -78,6 +78,7 @@
             }
 
     </style>
+    @yield("heads")
     <title>الجمهورية الجديدة | @yield('title')</title>
 </head>
 <body>
