@@ -149,12 +149,26 @@
               <a href="" class="show_more_article">المزيد</a>
             </aside>
             <article>
+                <div style="display: flex;justify-content: space-between;width: 100%;flex-direction: row-reverse;padding: 10px;align-items: center;">
+                  <a href="/category/{{ $article->category->id }}" class="cat" style="font-weight: 700;font-size: 17px;line-height: 26px;margin-top: -10px;color: #cc0000;text-decoration: none;display: flex;justify-content: center;align-items: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-category-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#cc0000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M14 4h6v6h-6z" />
+                      <path d="M4 14h6v6h-6z" />
+                      <path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                      <path d="M7 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                    </svg>
+                    {{ $article->category->main_name }}
+                  </a>
+                  <span id="formated_date" style="display: flex !important;gap: 10px;align-items: center;color: #cc0000;font-weight: 600;">
+                    <i class="bx bx-calendar"></i>
+                  </span>
+                </div>
                 <h1>{{ $article->title }}</h1>
                 <h1 class="sub_title" style="font-weight: 500;font-size: 15px;line-height: 26px;margin-top: -10px;">{{ $article->sub_title }}</h1>
                 <div class="thumbnail">
                     <img src="{{ $article->thumbnail_path }}" alt="">
                 </div>
-                <h4>{{ $article->category->main_name }}</h4>
                 <p>
                     <span>كتب: {{ $article->author_name }}</span> <br>
                     {!! $article->content !!}
@@ -232,7 +246,15 @@ $more_visited = App\models\Visit::with(['article' => function($query) {
 
 @section('scripts')
 <script src="{{ asset('/libs/swiperadmin.js') }}"></script>
-
+    <script>
+      var date = new Date({{ $article->created_at }});
+      var months = ["يناير", "فبراير", "مارس", "إبريل", "مايو", "يونيو",
+        "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
+      ];
+      var days = ["اﻷحد", "اﻷثنين", "الثلاثاء", "اﻷربعاء", "الخميس", "الجمعة", "السبت"];
+      var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[date.getMonth()] + ', ' + date.getFullYear();
+      $("#formated_date").html('<i class="fa-regular fa-calendar"></i>' + delDateString)
+    </script>
     <script>
         $(function () {
             setTimeout(() => {
