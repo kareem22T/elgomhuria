@@ -68,9 +68,7 @@ class ImagesController extends Controller
     public function putSEO(Request $request) {
         $validator = Validator::make($request->all(), [
             'img_id' => ['required'],
-            'title' => ['required'],
         ], [
-            'title.required' => 'Please enter image title',
             'alt.required' => 'Please enter image alt',
         ]);
 
