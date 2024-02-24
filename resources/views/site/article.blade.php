@@ -68,6 +68,9 @@
     flex-wrap: wrap !important;
     line-height: 1.5 !important;
   }
+  article img {
+    max-width: 100%;
+  }
   iframe {
     width: 100% !important;
   }
