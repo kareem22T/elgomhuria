@@ -33,7 +33,7 @@ class ImagesController extends Controller
         $image = $this->saveFile($request->img, 'images/uploads/');
         if ($image)
             $upload_image = Image::create([
-                'path' => $image
+                'path' => $image,
             ]);
 
         if ($upload_image)
@@ -69,7 +69,6 @@ class ImagesController extends Controller
         $validator = Validator::make($request->all(), [
             'img_id' => ['required'],
             'title' => ['required'],
-            'alt' => ['required'],
         ], [
             'title.required' => 'Please enter image title',
             'alt.required' => 'Please enter image alt',
@@ -82,7 +81,6 @@ class ImagesController extends Controller
 
         $Image = Image::find($request->img_id);
         $Image->title = $request->title;
-        $Image->alt = $request->alt;
         $Image->save();
         if ($Image) :
             return $this->jsondata(true,true,  'Image updated successfuly', [], []);

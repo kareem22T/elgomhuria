@@ -126,6 +126,17 @@
         padding-bottom: 0;
       }
     }
+    .embeded_img {
+      width: 100% !important;
+      max-width: 380px !important;
+    }
+    .embeded_img p {
+      justify-content: center
+    }
+    .embeded_img img {
+      width: 100%;
+      border-radius: 10px
+    }
 </style>
 <main class="aritcle">
     <div class="container">
@@ -169,6 +180,7 @@
                 <div class="thumbnail">
                     <img src="{{ $article->thumbnail_path }}" alt="">
                 </div>
+                <span style="color: black">{{ $article->thumbnail_title }}</span>
                 <p>
                     <span>كتب: {{ $article->author_name }}</span> <br>
                     {!! $article->content !!}

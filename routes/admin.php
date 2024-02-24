@@ -73,6 +73,7 @@ Route::middleware(['auth:admin'])->group(function () {
 
     // images
     Route::post('/images/upload', [ImagesController::class, 'uploadeImg']);
+    Route::post('/images/set-title', [ImagesController::class, 'putSEO']);
     Route::get('/images/get_images', [ImagesController::class, 'getImages']);
     Route::post('/images/search', [ImagesController::class, 'search']);
 

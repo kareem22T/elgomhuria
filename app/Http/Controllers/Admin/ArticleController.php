@@ -144,6 +144,7 @@ class ArticleController extends Controller
             'title' => 'required|string',
             'content' => 'required',
             'thumbnail' => 'required',
+            'thumbnail_title' => 'required',
             'author_name' => 'required',
             'intro' => 'required',
         ], [
@@ -170,6 +171,7 @@ class ArticleController extends Controller
 
         $createArticle = Article::create([
             'title' => $request->title,
+            'thumbnail_title' => $request->thumbnail_title,
             'content' => $request->content,
             'sub_title' => $request->sub_title ? $request->sub_title : null,
             'thumbnail_path' => $request->thumbnail ? $request->thumbnail : null,
@@ -214,6 +216,7 @@ class ArticleController extends Controller
             'title' => 'required',
             'content' => 'required',
             'thumbnail' => 'required',
+            'thumbnail_title' => 'required',
             'intro' => 'required',
             'author_name' => 'required'
         ], [
@@ -242,6 +245,7 @@ class ArticleController extends Controller
         $Article->content = $request->content;
         $Article->sub_title = $request->sub_title ? $request->sub_title : null;
         $Article->thumbnail_path = $request->thumbnail;
+        $Article->thumbnail_title = $request->thumbnail_title;
         $Article->intro = $request->intro;
         $Article->author_name = $request->author_name;
         $Article->isDraft = $request->draft ? true : false;

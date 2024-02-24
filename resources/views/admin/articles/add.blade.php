@@ -78,8 +78,11 @@
             <div class="pop-up show-images-pop-up card" v-if="showImages" style="  z-index: 999999999999999999999999999;min-width: 90vw;height: 90vh;padding: 20px;display: flex;flex-direction: column;justify-content: space-between;gap: 1rem;">
                 <input type="text" name="search" id="search" class="form-control w-25 mb-2" placeholder="بحث" v-model="search" @input="getSearchImages(this.search)">
                 <div class="imgs p-2 gap-3" v-if="images && images.length" style="display: flex;grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));flex-wrap: wrap;height: 100%;overflow: auto;">
-                    <div class="img" @click="this.choosed_img = '/images/uploads/' + img.path" v-for="(img, index) in images" :key="img.id" style="width: 260px;height: 230px;overflow: hidden;padding: 10px;border-radius: 1rem;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+                    <div class="img" @click="this.choosed_img = '/images/uploads/' + img.path; this.choosed_img_title = img.title" v-for="(img, index) in images" :key="img.id" style="width: 260px;height: 230px;overflow: hidden;padding: 10px;border-radius: 1rem;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;position: relative">
                         <img :src="'/images/uploads/' + img.path" id="preview" alt="img logo" style="width: 100%;height: 100%;object-fit: contain;">
+                        <button class="btn btn-primary" @click="img_for_seo = img; img_for_seo_title = img.title;img_for_seo_alt = img.alt;this.showSettingsPopUp = true" style="position: absolute;bottom: 5px;left: 50%;transform: translateX(-50%);">
+                            Set Title
+                        </button>
                     </div>
                 </div>
                 <div class="pagination w-100 d-flex gap-2 justify-content-center mt-3" v-if="last_page > 1">
@@ -89,6 +92,23 @@
                     </div>
                 </div>
                 <h1 v-if="images && !images.length && !search">لا توجد صور</h1>
+                <div class="hide-content" v-if="showSettingsPopUp"></div>
+                <div class="pop-up card p-3" v-if="showSettingsPopUp">
+                    <h2 class="mb-3 text-center">Set Image Title</h2>
+                    <div class="img">
+                        <img :src="`/images/uploads/${img_for_seo.path}`" alt="" style="margin: auto;width: 100%;object-fit: contain;object-fit: cover;max-width: 340px;margin-bottom: 10px;border-radius: 10px;">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="title" class="w-100" dir="ltr">Image Title</label>
+                        <input type="text" name="title" id="title" class="form-control" v-model="img_for_seo_title">
+                    </div>
+                    <div class="d-flex gap-2 justify-content-center mt-2">
+                        <button class="btn btn-light"  @click="this.showSettingsPopUp = false">Cancel</button>
+                        <button class="btn btn-secondary" @click="setTitle()">
+                            Set Title
+                        </button>
+                    </div>
+                </div>
                 <div class="foot" style="display: flex;width: 100%;justify-content: space-between;gap: 1rem;">
                     <button class="btn btn-primary" @click="this.showUploadPopUp = true">تحميل صورة</button>
                     <div class="hide-content" v-if="showUploadPopUp"></div>
@@ -210,6 +230,9 @@ const { createApp, ref } = Vue;
 createApp({
   data() {
     return {
+      img_for_seo: null,
+      showSettingsPopUp: false,
+      img_for_seo_title: null,
       main_name: null,
       cat_id: null,
       languages_data: null,
@@ -232,6 +255,7 @@ createApp({
       search_tags: null,
       preview_img: null,
       search: null,
+      choosed_img_title: "",
       showSliderPopUp: false,
       showCodePopUp: false,
       slider_imgs: [],
@@ -254,6 +278,7 @@ createApp({
     },
     previewThumbnail () {
         this.preview_img = this.choosed_img
+        this.thumbnail_title = this.choosed_img_title
         this.showImages = false
     },
     async add(title, content, thumbnail, cat_id, author_name, tags, draft = null) {
@@ -263,6 +288,7 @@ createApp({
                 title: title,
                 content: content,
                 thumbnail: thumbnail,
+                thumbnail_title: this.thumbnail_title,
                 cat_id: cat_id,
                 author_name: author_name,
                 tags: tags,
@@ -529,6 +555,65 @@ createApp({
             console.error(error);
         }
     },
+    async setTitle() {
+        $('.loader').fadeIn().css('display', 'flex')
+        try {
+            const response = await axios.post(`/admin/images/set-title`, {
+                img_id: this.img_for_seo.id,
+                title: this.img_for_seo_title,
+            },
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }
+
+            );
+            if (response.data.status === true) {
+                document.getElementById('errors').innerHTML = ''
+                let error = document.createElement('div')
+                error.classList = 'success'
+                error.innerHTML = response.data.message
+                document.getElementById('errors').append(error)
+                $('#errors').fadeIn('slow')
+                $('.loader').fadeOut()
+                this.showSettingsPopUp = false;
+                this.getImages()
+                setTimeout(() => {
+                    $('#errors').fadeOut('slow')
+                }, 3000);
+            } else {
+                $('.loader').fadeOut()
+                document.getElementById('errors').innerHTML = ''
+                $.each(response.data.errors, function (key, value) {
+                    let error = document.createElement('div')
+                    error.classList = 'error'
+                    error.innerHTML = value
+                    document.getElementById('errors').append(error)
+                });
+                $('#errors').fadeIn('slow')
+                setTimeout(() => {
+                    $('input').css('outline', 'none')
+                    $('#errors').fadeOut('slow')
+                }, 5000);
+            }
+
+        } catch (error) {
+            document.getElementById('errors').innerHTML = ''
+            let err = document.createElement('div')
+            err.classList = 'error'
+            err.innerHTML = 'server error try again later'
+            document.getElementById('errors').append(err)
+            $('#errors').fadeIn('slow')
+            $('.loader').fadeOut()
+            this.languages_data = false
+            setTimeout(() => {
+                $('#errors').fadeOut('slow')
+            }, 3500);
+
+            console.error(error);
+        }
+    },
     async getCategories() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
@@ -673,7 +758,7 @@ createApp({
     insertImgToArticle () {
         if (this.current_article_id) {
             if (this.choosed_img) {
-                this.insertHTML('<img src="' + this.choosed_img + '" />', this.current_article_id)
+                this.insertHTML('<div class="embeded_img" style="width: min-content"><img src="' + this.choosed_img + '" /><p style="text-align: center">' + this.choosed_img_title + '</p></div><p></p>', this.current_article_id)
                 this.chooseImage = null
                 this.current_article_id = null
                 this.showImages = null

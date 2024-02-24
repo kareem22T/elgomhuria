@@ -21,6 +21,7 @@ class Article extends Model
         'author_name',
         'author_id',
         'thumbnail_path',
+        'thumbnail_title',
         'isDraft',
         'category_id'
     ];
