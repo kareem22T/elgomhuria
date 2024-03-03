@@ -48,7 +48,7 @@
 <meta property="og:type" content="{{ $article->category->name }}">
 <meta property="og:title" content="{{ $article->title }}">
 <meta property="og:description" content="{{ $article->content }}">
-<meta property="og:image" content="https://gatorworks.net/wp-content/uploads/2020/06/shared-image.png">
+<meta property="og:image" content="{{ "https://elgomhuriaeljadida.com" . $article->thumbnail_path }}">
 <meta property="og:url" content="https://elgomhuriaeljadida.com/article/{{$article->id}}">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="El gomhuria el Gdida">
