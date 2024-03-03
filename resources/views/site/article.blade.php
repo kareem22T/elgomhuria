@@ -47,7 +47,7 @@
 @section("heads")
 <meta property="og:type" content="{{ $article->category->name }}">
 <meta property="og:title" content="{{ $article->title }}">
-<meta property="og:description" content="{{ $article->content }}">
+<meta property="og:description" content="{{ $article->intro }}">
 <meta property="og:image" content="{{ "https://elgomhuriaeljadida.com" . $article->thumbnail_path }}">
 <meta property="og:url" content="https://elgomhuriaeljadida.com/article/{{$article->id}}?v=1">
 <meta property="og:type" content="article">
