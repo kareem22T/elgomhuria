@@ -2167,3 +2167,13 @@ main.category .article img
   border: 1px solid;
   border-radius: 50px;
 }
+
+.suggestions.suggestions2 {
+    width: 95vw !important;
+    max-width: calc(95vw - 32px) !important;
+    top: calc(100% + 20px);
+    right: 0 !important;
+    transform: none !important;
+    border-radius: 10px;
+    left: auto;
+  }
