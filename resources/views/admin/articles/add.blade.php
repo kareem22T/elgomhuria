@@ -164,7 +164,7 @@
                     <button class="btn btn-light"  @click="this.showCodePopUp = false">Cancel</button>
                     <button class="btn btn-secondary" @click="insertHTML(this.code, 'article-content');this.showCodePopUp = false">insert</button>
                 </div>
-            </div>            
+            </div>
 
             <div class="mb-3 w-100">
                 <div class="w-100 d-flex gap-2 mb-3" style="position: relative">
@@ -184,7 +184,7 @@
             </div>
             <div class="w-50 mb-5" style="margin-left: auto;margin-right: auto">
                 <div @click="this.showImages = true; this.current_article_id = null" class="w-100 h-100 p-3 d-flex justify-content-center align-items-center form-control input" style="height: 170px; max-height: 300px">
-                    <img :src="preview_img ? preview_img : '/dashboard/images/add_image.svg'" id="preview" alt="img logo" style="width: 100%;object-fit: contain; height: 100%;">                                                
+                    <img :src="preview_img ? preview_img : '/dashboard/images/add_image.svg'" id="preview" alt="img logo" style="width: 100%;object-fit: contain; height: 100%;">
                 </div>
             </div>
 
@@ -210,7 +210,7 @@
         bottom: 0 !important;
         top: auto;
         z-index: 9999;
-        
+
     }
     .swiper-pagination {
         bottom: 0
@@ -355,7 +355,7 @@ createApp({
             if (response.data.status === true) {
                 if (search_words != '')
                     this.search_tags = response.data.data.data
-                else 
+                else
                     this.search_tags = []
             } else {
                 document.getElementById('errors').innerHTML = ''
@@ -475,7 +475,7 @@ createApp({
         if (this.slider_imgs.length > 3) {
             // Get the target element where you want to insert the content
             var targetElement = document.getElementById(element);
-            
+
             // Get the content from the 'slider' element
             var sliderContent = document.getElementById('slider').innerHTML;
             document.getElementById(element).focus();
@@ -785,7 +785,7 @@ createApp({
             this.chooseImage = null
             this.current_article_id = null
             this.showImages = null
-        } 
+        }
         else {
             this.previewThumbnail()
         }

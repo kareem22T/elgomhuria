@@ -35,13 +35,13 @@ class ArticleController extends Controller
 
     public function getLanguages() {
         $languages = Language::all();
-        
+
         return $this->jsonData(true, true, '', [], $languages);
     }
 
     public function getMainCategories() {
         $categories = Category::withب('sub_categories')->where('cat_type', 0)->get();
-        
+
         return $this->jsonData(true, true, '', [], $categories);
     }
 
@@ -51,7 +51,7 @@ class ArticleController extends Controller
         //     $isimportant = Important_article::where("article_id", $article->id)->count() > 0;
         //     $article->isImportant = $isimportant;
         // }
-        
+
         return $this->jsonData(true, true, '', [], $Articles);
     }
 
@@ -70,7 +70,7 @@ class ArticleController extends Controller
     }
     public function getDraftArticles() {
         $Articles = Article::where("isDraft", true)->with('category')->latest()->paginate(10);
-        
+
         return $this->jsonData(true, true, '', [], $Articles);
     }
 
@@ -88,7 +88,7 @@ class ArticleController extends Controller
         return $this->jsonData(true, true, '', [], $articles->isEmpty() ? [] : $articles);
     }
 
-    
+
     public function searchIndex(Request $request) {
         $articles = Article::latest()->with(['category'])
                             ->where(function ($query) use ($request) {
@@ -98,28 +98,28 @@ class ArticleController extends Controller
                             })
                             ->where('isDraft', false)
                             ->paginate(10);
-        
+
         $search_word =  (string) $request->s;
 
         if ($request->tag_id) {
             $tag = Tag::with(['articles' => function ($query) {
 
                 $query->latest();
-            
+
             }])->find($request->tag_id);
-            
-            
+
+
             $articles = $tag->articles()->paginate(10);
         }
 
-        $tag_id = $request->tag_id; 
+        $tag_id = $request->tag_id;
         if ($request->tag_id)
             return view("site.search")->with(compact(["articles", "search_word", "tag_id"]));
 
         return view("site.search")->with(compact(["articles", "search_word"]));
     }
     public function categoryIndex(Request $request) {
-        
+
         if ($request->id == 0) :
             $articles = Article::latest()->where("isDraft", false)->paginate(20);
 
@@ -159,13 +159,13 @@ class ArticleController extends Controller
             return $this->jsondata(false, true, 'Add failed', [$validator->errors()->first()], []);
         }
 
-        if (!$request->cat_id) { 
+        if (!$request->cat_id) {
             return $this->jsondata(false, true, 'Add failed', ['من فضلك قم باختيار القسم'], []);
         }
 
         if (str_word_count($request->title) > 10)
             return $this->jsondata(false, true, 'Add failed', ['لا يمكن للعنوان ان يتعدى العشر كلمات'], []);
-        
+
         if (str_word_count($request->sub_title) > 10)
             return $this->jsondata(false, true, 'Add failed', ['لا يمكن للعنوان الفرعي ان يتعدى العشر كلمات'], []);
 
@@ -200,11 +200,11 @@ class ArticleController extends Controller
     public function editIndex ($cat_id) {
         $Article = Article::find($cat_id);
         return view('admin.articles.edit')->with(compact('Article'));
-    }    
+    }
 
     public function getArticleById(Request $request) {
         $Article = Article::with('category')->with('tags')->find($request->article_id);
-        
+
         return $this->jsonData(true, true, '', [], $Article);
     }
 
@@ -216,7 +216,6 @@ class ArticleController extends Controller
             'title' => 'required',
             'content' => 'required',
             'thumbnail' => 'required',
-            'thumbnail_title' => 'required',
             'intro' => 'required',
             'author_name' => 'required'
         ], [
@@ -231,13 +230,13 @@ class ArticleController extends Controller
             return $this->jsondata(false, true, 'Add failed', [$validator->errors()->first()], []);
         }
 
-        if (!$request->cat_id) { 
+        if (!$request->cat_id) {
             return $this->jsondata(false, true, 'Add failed', ['من فضلك قم باختيار القسم'], []);
         }
 
         if (str_word_count($request->title) > 10)
             return $this->jsondata(false, true, 'Add failed', ['لا يمكن للعنوان ان يتعدى العشر كلمات'], []);
-        
+
         if (str_word_count($request->sub_title) > 10)
             return $this->jsondata(false, true, 'Add failed', ['لا يمكن للعنوان الفرعي ان يتعدى العشر كلمات'], []);
 
@@ -245,6 +244,7 @@ class ArticleController extends Controller
         $Article->content = $request->content;
         $Article->sub_title = $request->sub_title ? $request->sub_title : null;
         $Article->thumbnail_path = $request->thumbnail;
+        if ($request->thumbnail_title)
         $Article->thumbnail_title = $request->thumbnail_title;
         $Article->intro = $request->intro;
         $Article->author_name = $request->author_name;
