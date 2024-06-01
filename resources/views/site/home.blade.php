@@ -171,7 +171,7 @@ $more_visited = App\Models\Visit::with(['article' => function ($query) {
                                         </div>
                                     </div>
                                     @endforeach
-                                    <a href="/category/{{$category->id}}" class="swiper-slide" style="flex-direction: column;width: 513px; margin-right: 30px;display: flex;justify-content: center;align-items: center;font-size: 25px;font-weight: 700;color: var(--secondary-color);  min-height: 300px;">
+                                    <a href="/category/{{$category->id}}" class="swiper-slide last-slide" style="flex-direction: column;width: 513px; margin-right: 30px;display: flex;justify-content: center;align-items: center;font-size: 25px;font-weight: 700;color: var(--secondary-color); ">
                                         {!! $category->icon !!}
                                         عرض كل مقالات قسم {{ $category->main_name}}
                                     </a>

@@ -2188,4 +2188,7 @@ main.category .article img
     .social_wrapper span {
         display: none;
     }
+    .last-slide {
+        min-height: 300px;
+    }
 }
