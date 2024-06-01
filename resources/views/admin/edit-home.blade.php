@@ -14,6 +14,10 @@
         <label for="categories" class="d-block mb-2">رئيس التحرير</label>
         <input type="text" name="search" id="search" class="form-control w-100" placeholder="رئيس التحرير" v-model="editor_master">
     </div>
+    <div class="w-100 mb-3">
+        <label for="categories" class="d-block mb-2">مدير تحرير</label>
+        <input type="text" name="search" id="search" class="form-control w-100" placeholder="مدير تحرير" v-model="manager_name">
+    </div>
     {{-- <div class="w-100 mb-3">
         <textarea name="news" id="news" cols="30" rows="5" placeholder="شريط الاخبار" class="form-control" v-model="news_bar"></textarea>
     </div> --}}
@@ -118,7 +122,7 @@
             </div>
         </div>
     </div>
-    
+
     <button class="button btn btn-primary w-25" @click="saveHomeContent(news_bar, categories)">حفظ</button>
     <br><br>
     <br><br>
@@ -156,6 +160,7 @@ createApp({
   data() {
     return {
         editor_master: null,
+        manager_name: null,
         categories: [],
         articles: [],
         prevCategories: [],
@@ -349,6 +354,7 @@ createApp({
                 this.prevArticles = response.data.data.artnames
                 this.news_bar = response.data.data.newsbar ? response.data.data.newsbar.text : null
                 this.editor_master = response.data.data.editor_master ? response.data.data.editor_master.name : null
+                this.manager_name = response.data.data.editor_master ? (response.data.data.editor_master.manager_name) : null
                 if (response.data.data.ads) {
                     this.imagePreview_ad_1 = response.data.data.ads.ad_1 ? '/images/uploads/ads/' + response.data.data.ads.ad_1 : null
                     this.imagePreview_ad_2 = response.data.data.ads.ad_2 ? '/images/uploads/ads/' + response.data.data.ads.ad_2 : null
@@ -395,6 +401,7 @@ createApp({
         try {
             const response = await axios.post(`{{ route('save.home') }}`, {
                 editor_master: this.editor_master,
+                manager_name: this.manager_name,
                 news_bar: news_bar,
                 categories: categories,
                 articles: this.articles,

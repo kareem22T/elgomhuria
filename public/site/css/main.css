@@ -81,9 +81,9 @@ header .container>div:last-child button {
 }
 
 header .container>div:first-child p {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
-    line-height: 24px;
+    line-height: 20px;
     letter-spacing: 0em;
     text-align: center;
 }
@@ -898,7 +898,7 @@ textarea:focus {
 }
 
 .col-2 {
-    max-width: 610px;
+    max-width: 652px;
 }
 
 .home .mainSwiper
@@ -1114,7 +1114,7 @@ textarea:focus {
     .ad.main {
         height: 333.33px;
         margin-bottom: 100px;
-    }    
+    }
 }
 @media (max-width: 992.98px) {
     .ad_wrapper {
@@ -1496,7 +1496,7 @@ footer .container p:last-child {
     }
     .col-1
     {
-    display: none;   
+    display: none;
     }
     .col-2
     {
@@ -1561,7 +1561,7 @@ footer .container p:last-child {
         width: 120px;
         border-radius: 10px;
     }
-    
+
 }
 .mobile-social, .mobile-paragraph {display: none;}
 .col-2 .latest {
@@ -1661,7 +1661,7 @@ display: none;
         width: 100%;
         padding: .5rem 1rem;
     }
-    
+
     .catSwiper .swiper-slide
     {
         padding: 1rem;
@@ -1775,7 +1775,7 @@ display: none;
         border-radius: 10px;
         margin: 1rem 1rem;
         padding: 10px;
-    }    
+    }
     .latest .card {
         display: flex;
         gap: 20px;
@@ -1918,7 +1918,7 @@ main.category .article img
     main.category .container .article {
         max-width: 100%;
     }
-    
+
 }
 .page-link {
     border-radius: 10px !important;
@@ -1991,8 +1991,8 @@ main.category .article img
     background-color:#000;
     color:#fff
   }
-  
-.pop-up.search-pop-up {  
+
+.pop-up.search-pop-up {
     position: fixed;
     top: calc(20px + clamp(3.125rem, 1.7314rem + 5.9459vw, 6.5625rem)) !important;
     border-radius: 0px;
@@ -2039,7 +2039,7 @@ main.category .article img
     right:0!important;
     left:auto!important
   }
-  
+
   @media (max-width: 1199.98px) {
     main .container .article aside {
         min-width: 200px;
@@ -2092,7 +2092,7 @@ main.category .article img
         text-align: right;
         width: 60%;
     }
-    
+
 }
 @media (max-width: 575.98px) {
     .main.category .container .article, main .container .article article .thumbnail {
@@ -2177,3 +2177,14 @@ main.category .article img
     border-radius: 10px;
     left: auto;
   }
+
+
+.social_wrapper {
+    text-align: center;font-weight: 700;line-height: 19px;font-size: 18px;
+}
+
+@media (max-width: 767.98px) {
+    .social_wrapper span {
+        display: none;
+    }
+}

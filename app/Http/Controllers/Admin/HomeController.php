@@ -31,6 +31,7 @@ class HomeController extends Controller
     public function savePageContent(Request $request) {
         $validator = Validator::make($request->all(), [
             'editor_master' => 'required',
+            'manager_name' => 'required',
         ], [
             'editor_master.required' => 'ادخل اسم رئيس التحرير',
         ]);
@@ -75,14 +76,16 @@ class HomeController extends Controller
             $editor_master = Editor_master::all();
             if ($editor_master->count() > 0) {
                 $editor_master->first()->name = $request->editor_master;
+                $editor_master->first()->manager_name = $request->manager_name;
                 $editor_master->first()->save();
             } else {
                 $editor_master = Editor_master::create([
-                    'name' => $request->editor_master
+                    'name' => $request->editor_master,
+                    'manager_name' => $request->manager_name,
                 ]);
             }
         }
-        
+
         $ads = Ad::all();
         if ($ads->count() == 0)
             $ad = Ad::create([
@@ -92,7 +95,7 @@ class HomeController extends Controller
                 'mobile_ad_1' => null,
                 'mobile_ad_2' => null,
                 'mobile_ad_3' => null,
-                'main_ad' => null,        
+                'main_ad' => null,
             ]);
         $ads = Ad::all();
         if ($request->ad_1):
@@ -124,7 +127,7 @@ class HomeController extends Controller
             $ads->first()->main_ad = $main_ad;
         endif;
         $ads->first()->save();
-        
+
 
         return $this->jsondata(true, true, 'تم حفظ المحتوى بنجاح', [], []);
     }

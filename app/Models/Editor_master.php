@@ -9,7 +9,8 @@ class Editor_master extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "name"
+        "name",
+        "manager_name"
     ];
 
     protected $table = "editor_master";
