@@ -17,15 +17,18 @@
 
             <div id="ticker-box" style="overflow: hidden; min-height: 40px;">
                 <ul style="padding: 0px; margin: 0px; position: relative; list-style-type: none;">
-                    
+
                     <li style="display: flex; justify-content: center; align-items: center; gap: 5px;    position: absolute; white-space: nowrap; right: -3543px; color: rgb(0, 0, 0);">
                         @foreach ($important_articles as $index => $important)
+                        @if($important->article)
+
                           <a href="/article/{{$important->article->id}}" style="text-decoration: none; color:rgb(0, 0, 0); display: inline-flex;justify-content: center; align-items: center;gap: 12px;margin-right: 12px">
-                              {{$important->article->title}} 
+                              {{$important->article->title}}
                               @if ($index + 1 !== $important_articles->count())
                               <img src="{{ asset("/site/imgs/logo_t.png")}}" alt="" style="width: 20px">
                               @endif
                             </a>
+                            @endif
                         @endforeach
                     </li>
                 </ul>
@@ -37,7 +40,7 @@
                 else
                     startTicker('ticker-box', {speed: 1, delay:500});
             </script>
-    
+
         </div>
         </div>
 </div>
@@ -81,6 +84,6 @@
         $(".pagination_wrapper ul a").each(function() {
             $(this).attr('href', $(this).attr('href') + '&category_name=' + $('#search_words').val())
         })
-    </script>  
+    </script>
 @endsection
 

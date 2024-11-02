@@ -20,12 +20,15 @@
 
                     <li style="display: flex; justify-content: center; align-items: center; gap: 5px;    position: absolute; white-space: nowrap; right: -3543px; color: rgb(0, 0, 0);">
                         @foreach ($important_articles as $index => $important)
+                        @if($important->article)
+
                           <a href="/article/{{$important->article->id}}" style="text-decoration: none; color:rgb(0, 0, 0); display: inline-flex;justify-content: center; align-items: center;gap: 12px;margin-right: 12px">
                               {{$important->article->title}}
                               @if ($index + 1 !== $important_articles->count())
                               <img src="{{ asset("/site/imgs/logo_t.png")}}" alt="" style="width: 20px">
                               @endif
                             </a>
+                            @endif
                         @endforeach
                     </li>
                 </ul>
