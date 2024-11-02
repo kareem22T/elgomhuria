@@ -17,15 +17,17 @@
 
             <div id="ticker-box" style="overflow: hidden; min-height: 40px;">
                 <ul style="padding: 0px; margin: 0px; position: relative; list-style-type: none;">
-                    
+
                     <li style="display: flex; justify-content: center; align-items: center; gap: 5px;    position: absolute; white-space: nowrap; right: -3543px; color: rgb(0, 0, 0);">
                         @foreach ($important_articles as $index => $important)
+                        @if($important->article)
                           <a href="/article/{{$important->article->id}}" style="text-decoration: none; color:rgb(0, 0, 0); display: inline-flex;justify-content: center; align-items: center;gap: 12px;margin-right: 12px">
-                              {{$important->article->title}} 
+                              {{$important->article->title}}
                               @if ($index + 1 !== $important_articles->count())
                               <img src="{{ asset("/site/imgs/logo_t.png")}}" alt="" style="width: 20px">
                               @endif
                             </a>
+                            @endif
                         @endforeach
                     </li>
                 </ul>
@@ -37,7 +39,7 @@
               else
                   startTicker('ticker-box', {speed: 1, delay:500});
           </script>
-  
+
         </div>
         </div>
 </div>
@@ -151,10 +153,10 @@
             <aside>
               <h1>اهم عناوين الاخبار</h1>
               <div class="links">
-                @foreach ($main_articles as $item)   
+                @foreach ($main_articles as $item)
                 @php
                     $main_article = App\Models\Article::find($item->article_id);
-                @endphp                     
+                @endphp
                   <a href="/article/{{$main_article->id}}" target="_blanck" class="swiper-slide">
                     {{Illuminate\Support\Str::limit($main_article->title, 100)}}
                   </a>
@@ -201,7 +203,7 @@
             @php
                 $ads = App\Models\Ad::all()->first();
             @endphp
-            @if ($ads)                
+            @if ($ads)
                   <div class="ad_wrapper" style="margin-bottom: 1rem">
                       <section class="ad">
                           @if ($ads->ad_1)
@@ -209,7 +211,7 @@
                           @endif
                       </section>
                   </div>
-              @endif        
+              @endif
       </section>
     </div>
 </main>
@@ -244,7 +246,7 @@ $more_visited = App\models\Visit::with(['article' => function($query) {
     <div class="container">
         @foreach ($more_visited as $article)
           @if ($article->article)
-              
+
             <a href="/article/{{$article->id}}" class="article">
               <img src="{{$article->article->thumbnail_path}}" alt="">
               <span>
