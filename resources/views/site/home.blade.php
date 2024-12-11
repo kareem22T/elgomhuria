@@ -119,20 +119,22 @@ $more_visited = App\Models\Visit::with(['article' => function ($query) {
                     @php
                         $main_article = App\Models\Article::find($item->article_id);
                     @endphp
-                    <a href="/article/{{$main_article->id}}" target="_blanck" class="swiper-slide">
-                        <div class="thumbnail">
-                            <img src="{{$main_article->thumbnail_path}}" alt="">
-                        </div>
-                        <div class="text">
-                            <h2>{{ $main_article->title }}</h2>
-                            <h2 class="sub-title">{{ $main_article->sub_title }}</h2>
-                            <p>
-                                <span>كتب: {{$main_article->author_name}}</span><br>
-                                {{Illuminate\Support\Str::limit($main_article->intro, 195)}}
-                            </p>
+                    @if($main_article)
+                        <a href="/article/{{$main_article->id}}" target="_blanck" class="swiper-slide">
+                            <div class="thumbnail">
+                                <img src="{{$main_article->thumbnail_path}}" alt="">
+                            </div>
+                            <div class="text">
+                                <h2>{{ $main_article->title }}</h2>
+                                <h2 class="sub-title">{{ $main_article->sub_title }}</h2>
+                                <p>
+                                    <span>كتب: {{$main_article->author_name}}</span><br>
+                                    {{Illuminate\Support\Str::limit($main_article->intro, 195)}}
+                                </p>
 
-                        </div>
-                    </a>
+                            </div>
+                        </a>
+                    @endif
                     @endforeach
                 </div>
                 <div class="mainSwiper-swiper-button-next"><i class="fa-solid fa-angle-right"></i></div>

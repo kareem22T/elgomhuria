@@ -276,6 +276,14 @@ class ArticleController extends Controller
         }
 
         $Article = Article::find($request->article_id);
+        $important = Important_article::where('article_id', $Article->id)->first();
+        if ($important)
+         $important->delete();
+
+        $main_article = Home_article::where('article_id', $Article->id)->first();
+        if ($main_article)
+         $main_article->delete();
+
         $Article->delete();
 
         if ($Article)
